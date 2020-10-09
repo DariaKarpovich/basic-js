@@ -1,6 +1,18 @@
 const CustomError = require("../extensions/custom-error");
 
-module.exports = function getSeason(/* date */) {
-  throw new CustomError('Not implemented');
-  // remove line with error and write your code here
-};
+module.exports = function getSeason(date) {
+  if (date === undefined) {
+    return 'Unable to determine the time of year!';
+  } 
+
+  if (Object.values(date).length !== 0) {
+    throw CustomError;
+  } 
+
+  let monthIndex = date.getMonth();
+
+  if (monthIndex === 0 || monthIndex === 1 || monthIndex === 11) return 'winter';
+  if (monthIndex === 2 || monthIndex === 3 || monthIndex === 4) return 'spring';
+  if (monthIndex === 5 || monthIndex === 6 || monthIndex === 7) return 'summer';
+  if (monthIndex === 8 || monthIndex === 9 || monthIndex === 10) return 'autumn';
+  }
